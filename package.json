@@ -1,0 +1,19 @@
+{
+  "name": "rest-api",
+  "version": "1.0.0",
+  "description": "Primeira API REST",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Primeira",
+    "API",
+    "REST"
+  ],
+  "author": "Caio paulino",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
