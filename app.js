@@ -7,6 +7,7 @@ const produtosRouter = require('./routes/produtos')
 const pedidosRouter = require('./routes/pedidos')
 
 app.use(morgan('dev'))
+app.use('/uploads', express.static('uploads'))
 
 app.use(bodyParser.urlencoded({extended: false})) // apenas dados simples //
 app.use(bodyParser.json()) // json de entrada no body //
