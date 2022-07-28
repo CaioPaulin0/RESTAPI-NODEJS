@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const mysql = require('../mysql').pool
 const multer = require('multer')
+const login = require('../middleware/login')
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -60,8 +61,7 @@ router.get('/', (req, res, next) => {
 })
 
 // INSERI UM PRODUTO//
-router.post('/', upload.single('produto_imagem'), (req, res, next) => {
-    console.log(req.file)
+router.post('/', login.obrigatorio, upload.single('produto_imagem'), (req, res, next) => {
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error }) }
 
@@ -78,7 +78,7 @@ router.post('/', upload.single('produto_imagem'), (req, res, next) => {
                         id_produto: result.id_produto,
                         nome: req.body.nome,
                         preco: req.body.preco,
-                        image_produto: req.file.path,
+                        imagem_produto: req.file.path,
                         request: {
                             tipo: 'GET',
                             descricao: 'retorna todos os produtos',
@@ -128,7 +128,7 @@ router.get('/:id_produtos', (req, res, next) => {
 })
 
 // ALTERA UM PRODUTO //
-router.patch('/', (req, res, next) => {
+router.patch('/', login.obrigatorio, (req, res, next) => {
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error }) }
 
@@ -159,7 +159,7 @@ router.patch('/', (req, res, next) => {
 })
 
 // DELETA UM PRODUTO //
-router.delete('/', (req, res, next) => {
+router.delete('/',  login.obrigatorio ,(req, res, next) => {
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error }) }
 
