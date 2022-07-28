@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 
 const produtosRouter = require('./routes/produtos')
 const pedidosRouter = require('./routes/pedidos')
+const usuarioRouter = require('./routes/usuarios')
 
 app.use(morgan('dev'))
 app.use('/uploads', express.static('uploads'))
@@ -26,6 +27,7 @@ app.use((req,res,next) => {
 
 app.use('/produtos', produtosRouter)
 app.use('/pedidos', pedidosRouter)
+app.use('/usuarios', usuarioRouter)
 
 // quando não encontrar rota, entra aqui //
 
