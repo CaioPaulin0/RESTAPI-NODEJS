@@ -14,11 +14,11 @@ app.use(bodyParser.urlencoded({extended: false})) // apenas dados simples //
 app.use(bodyParser.json()) // json de entrada no body //
 
 app.use((req,res,next) => {
-    res.header('Acess-Control-Allow-Origin', '*')
-    res.header('Acess-Control-Allow-Header', 'Origin, X-Requested-with, Content-Type, Accpet, Authorization')
+    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Header', 'Origin, X-Requested-with, Content-Type, Accpet, Authorization')
     
     if(req.method === 'OPTIONS') {
-        res.header('Acess-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET')
+        res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET')
         return res.status(200).send({})
     }
 
