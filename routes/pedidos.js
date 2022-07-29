@@ -8,7 +8,7 @@ router.get('/', PedidosControler.getPedidos)
 // INSERE UM PEDIDO//
 router.post('/', PedidosControler.postPedidos)
 
-// RETORNA O DADO DO PEDIDOS //
+// RETORNA Os DADOs DO PEDIDO //
 router.get('/:id_pedido', PedidosControler.getPedidosId)
 
 // DELETA UM PEDIDOS //
