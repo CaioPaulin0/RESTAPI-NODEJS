@@ -5,7 +5,7 @@ const PedidosControler = require('../controllers/pedidos-controller')
 // RETONAR TODOS OS PEDIDOS/
 router.get('/', PedidosControler.getPedidos)
 
-// INSERI UM PEDIDOS//
+// INSERE UM PEDIDOS//
 router.post('/', PedidosControler.postPedidos)
 
 // RETORNA O DADO DO PEDIDOS //
