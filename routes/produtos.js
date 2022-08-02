@@ -4,6 +4,7 @@ const mysql = require('../mysql').pool
 const ProdutosController = require('../controllers/produtos-controller')
 const multer = require('multer')
 const login = require('../middleware/login')
+const jwt = require('jsonwebtoken')
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -36,8 +37,13 @@ router.get('/', ProdutosController.getProdutos)
 // INSERI UM PRODUTO//
 router.post('/', login.obrigatorio, upload.single('produto_imagem'), ProdutosController.postProdutos)
 
+// adiciona varias imagem
+router.post('/:id_produto/imagem', login.obrigatorio, upload.single('produto_imagem'), ProdutosController.postImagem)
+
 // RETORNA O DADO DO PRODUTO //
 router.get('/:id_produtos', ProdutosController.getProdutosId)
+
+router.get('/:id_produtos/imagens', ProdutosController.getImagens)
 
 // ALTERA UM PRODUTO //
 router.patch('/', login.obrigatorio, ProdutosController.patchProdutos)
