@@ -1,7 +1,7 @@
 # REST API COM NODE.JS 
 
 
-<h3> REST API feita com node.js com as funções: </h3> 
+<h3> REST API feita com node.js com banco de dados relacionais (SQL) com as funções: </h3> 
 <ul>
 <li>Cadastro de produtos e pedidos 📄</li>
 <li>Visualizar produtos e pedidos 📚</li>
